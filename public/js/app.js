@@ -98,7 +98,6 @@ document.getElementById("add-todo-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const input = document.getElementById("todo-input");
   const title = input.value.trim();
-
   if (title) {
     addTodo(title);
     input.value = "";

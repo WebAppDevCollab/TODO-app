@@ -3,7 +3,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
@@ -37,7 +37,11 @@ app.put("/api/todos/:id", (req, res) => {
 
 app.delete("/api/todos/:id", (req, res) => {
   const { id } = req.params;
-  const deletedTodo = todos.filter((todo) => todo.id !== id);
+  const index = todos.findIndex((todo) => todo.id === parseInt(id));
+  if (index === -1) {
+    return res.status(404).json({ error: "Todo not found" });
+  }
+  const deletedTodo = todos.splice(index, 1)[0];
   res.json(deletedTodo);
 });
 

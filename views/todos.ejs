@@ -8,6 +8,11 @@
   </head>
   <body class="bg-gray-100 min-h-screen">
     <div class="container mx-auto px-4 py-8 max-w-2xl">
+      <a
+        href="/"
+        class="inline-block mb-6 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition-colors"
+        >Back to Home</a
+      >
       <h1 class="text-3xl font-bold text-center mb-8"><%= title %></h1>
 
       <div class="bg-white rounded-lg shadow-md p-6 mb-6">
@@ -18,6 +23,7 @@
             placeholder="Enter new task..."
             class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
+            autofocus
           />
           <button
             type="submit"
